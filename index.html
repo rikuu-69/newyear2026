@@ -116,9 +116,11 @@
     <div class="ending">
       <button onclick="showEnding()">Tap this ❤️</button>
       <p id="finalMessage">No matter where 2026 takes us, I choose you ❤️ today and every year after.</p>
-      <div class="progressive-ender">
+
+      <!-- Hidden Note -->
+      <div id="progressiveNote" class="progressive-ender" style="display:none;">
         <h3>Note from me 💌</h3>
-        <p>Hey love, I just started learning coding and AI helps me a lot. In 2026, I’m starting a personal project to capture our memories. Take lots of photos — I’ll make a story of our years, our wins, our challenges, and everything in between. Love you! 💖</p>
+        <p>Ayoo Mahaloo, I just started learning coding and AI helps me a lot. In 2026, I’m starting a personal project to capture our memories. Take lots of photos — I’ll make a story of our years, our wins, our challenges, and everything in between. Love you! 💖</p>
       </div>
     </div>
 
@@ -139,7 +141,10 @@ function reveal(photo){
 function showEnding(){
   document.getElementById('finalMessage').classList.add('show');
   const music = document.getElementById('bgMusic');
-  if(document.getElementById('bgMusic').paused) document.getElementById('bgMusic').play();
+  if(music.paused) music.play();
+
+  // Reveal the note
+  document.getElementById('progressiveNote').style.display='block';
 }
 
 // Scroll fade-in
