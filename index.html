@@ -10,15 +10,13 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- Desktop Warning -->
+<!-- Desktop warning -->
 <div class="desktop-warning">
   <p>💌 This surprise is meant to be opened on your phone.<br>Please open this link on mobile 💕</p>
 </div>
 
-<!-- Mobile Content -->
 <div class="mobile-only">
 
   <!-- Background -->
@@ -30,120 +28,79 @@
     <source src="music/lost-stars.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Intro -->
-  <section class="intro snap">
-    <h1 class="fade-in">Welcome 2026, Mahaloo! 🎆</h1>
-    <p class="fade-in delay">
-      As this new year begins, I just want you to know how grateful I am for you.
-      Thank you for being my favorite person, my comfort, and my home. Alabyuu! mwa
-    </p>
-  </section>
+  <!-- Slides container -->
+  <div class="slides-container">
 
-  <!-- Scroll Container -->
-  <main class="scroll-container">
-
-    <!-- PHOTO TEMPLATE -->
-    <section class="photo-card snap" onclick="reveal(this)">
+    <!-- Slide template -->
+    <div class="slide active" onclick="reveal(this)">
       <img src="images/photo1.jpg">
       <div class="caption">
         <h3>My first favorite memory 💕</h3>
         <p>We finally braved the room and showed everyone we loved each other.</p>
       </div>
-    </section>
+    </div>
 
-    <section class="photo-card snap" onclick="reveal(this)">
+    <div class="slide" onclick="reveal(this)">
       <img src="images/photo2.jpg">
       <div class="caption">
         <h3>A day I’ll never forget ✨</h3>
         <p>Our first job — from nothing to where we are now.</p>
       </div>
-    </section>
+    </div>
 
-    <section class="photo-card snap" onclick="reveal(this)">
+    <div class="slide" onclick="reveal(this)">
       <img src="images/photo3.jpg">
       <div class="caption">
         <h3>Smiles that I fell in love with 😊</h3>
         <p>You finally came home after OJT in Thailand. I missed you.</p>
       </div>
-    </section>
+    </div>
 
-    <section class="photo-card snap" onclick="reveal(this)">
+    <div class="slide" onclick="reveal(this)">
       <img src="images/photo4.jpg">
       <div class="caption">
         <h3>Us being us ❤️</h3>
         <p>Starbucks. SM BF. I love this photo.</p>
       </div>
-    </section>
+    </div>
 
-    <section class="photo-card snap" onclick="reveal(this)">
-      <img src="images/photo5.jpg">
-      <div class="caption">
-        <h3>One of my favorite moments 🥰</h3>
-        <p>I don’t remember when or where, but I know we were happy.</p>
-      </div>
-    </section>
-
-    <section class="photo-card snap" onclick="reveal(this)">
-      <img src="images/photo6.jpg">
-      <div class="caption">
-        <h3>Your struggle era 😄</h3>
-        <p>I witnessed how you struggled, fought, and came back stronger.</p>
-      </div>
-    </section>
-
-    <section class="photo-card snap" onclick="reveal(this)">
-      <img src="images/photo7.jpg">
-      <div class="caption">
-        <h3>Exactly where I want to be 💗</h3>
-        <p>You witnessed my struggles too — and stayed.</p>
-      </div>
-    </section>
-
-    <section class="photo-card snap" onclick="reveal(this)">
-      <img src="images/photo8.jpg">
-      <div class="caption">
-        <h3>A memory close to my heart 💞</h3>
-        <p>First studio after 7 years. Mehehe.</p>
-      </div>
-    </section>
-
-    <section class="photo-card snap" onclick="reveal(this)">
-      <img src="images/photo9.jpg">
-      <div class="caption">
-        <h3>More moments like this 🌸</h3>
-        <p>One of my most expensive days — worth it.</p>
-      </div>
-    </section>
-
-    <section class="photo-card snap" onclick="reveal(this)">
+    <!-- Continue for all photos ... -->
+    <div class="slide" onclick="reveal(this)">
       <img src="images/photo10.jpg">
       <div class="caption">
         <h3>My favorite person, always 💖</h3>
         <p>No matter the year, it will always be you.</p>
       </div>
-    </section>
+    </div>
 
-    <!-- Ending -->
-    <section class="ending snap">
+    <!-- Ending slide -->
+    <div class="slide ending">
       <button onclick="showEnding()">Tap this ❤️</button>
       <p id="finalMessage">
-        No matter where 2026 takes us, I choose you ❤️ today and every year after.
+        No matter where 2026 takes us, I choose you — today and every year after.
       </p>
-    </section>
+    </div>
 
-  </main>
-
+  </div>
 </div>
 
 <script>
+let currentSlide = 0;
+let slides = document.querySelectorAll('.slide');
 let musicStarted = false;
 
-function reveal(card) {
-  card.classList.toggle("active");
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
 
-  // haptic-style feedback
-  card.classList.add("tap");
-  setTimeout(() => card.classList.remove("tap"), 150);
+function reveal(slide) {
+  slide.classList.toggle('revealed');
+
+  // Haptic-like visual feedback
+  slide.classList.add('tap');
+  setTimeout(() => slide.classList.remove('tap'), 150);
 
   if (!musicStarted) {
     document.getElementById("bgMusic").play();
@@ -151,6 +108,7 @@ function reveal(card) {
   }
 }
 
+// Ending message
 function showEnding() {
   document.getElementById("finalMessage").classList.add("show");
   if (!musicStarted) {
@@ -158,9 +116,38 @@ function showEnding() {
     musicStarted = true;
   }
 }
+
+// Keyboard for testing
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+});
+
+// Functions to move slides
+function nextSlide() {
+  if (currentSlide < slides.length - 1) {
+    currentSlide++;
+    showSlide(currentSlide);
+  }
+}
+function prevSlide() {
+  if (currentSlide > 0) {
+    currentSlide--;
+    showSlide(currentSlide);
+  }
+}
+
+// Touch swipe for mobile
+let startX = 0;
+let endX = 0;
+const container = document.querySelector('.slides-container');
+container.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+container.addEventListener('touchend', (e) => {
+  endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) nextSlide();
+  if (endX - startX > 50) prevSlide();
+});
 </script>
 
 </body>
 </html>
-
-
