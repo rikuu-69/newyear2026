@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,6 +23,7 @@
 
   <!-- Background -->
   <div class="background"></div>
+  <div class="particles"></div>
 
   <!-- Music -->
   <audio id="bgMusic" loop>
@@ -31,10 +32,10 @@
 
   <!-- Intro -->
   <section class="intro snap">
-    <h1 class="fade-in">Welcome 2026, Mahaloo! 🎆</h1>
+    <h1 class="fade-in">Welcome 2026, My Love 🎆</h1>
     <p class="fade-in delay">
       As this new year begins, I just want you to know how grateful I am for you.
-      Thank you for being my favorite person, my comfort, and my home. Alabyuu! Mwaa
+      Thank you for being my favorite person, my comfort, and my home.
     </p>
   </section>
 
@@ -126,7 +127,7 @@
     <section class="ending snap">
       <button onclick="showEnding()">Tap this ❤️</button>
       <p id="finalMessage">
-        No matter where 2026 takes us, I choose you ❤️ today and every year after.
+        No matter where 2026 takes us, I choose you — today and every year after.
       </p>
     </section>
 
@@ -139,6 +140,11 @@ let musicStarted = false;
 
 function reveal(card) {
   card.classList.toggle("active");
+
+  // haptic-style feedback
+  card.classList.add("tap");
+  setTimeout(() => card.classList.remove("tap"), 150);
+
   if (!musicStarted) {
     document.getElementById("bgMusic").play();
     musicStarted = true;
