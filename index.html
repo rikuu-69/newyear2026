@@ -1,137 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Welcome 2026, My Love</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Welcome 2026 ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- ⭐ Starry Background -->
+<!-- Background stars -->
 <div class="stars"></div>
-<div class="stars2"></div>
-<div class="stars3"></div>
 
-<!-- 🎵 Background Music -->
-<audio autoplay loop>
+<!-- Music -->
+<audio id="bgMusic" loop>
   <source src="music/lost-stars.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🌟 Opening Message -->
+<!-- Opening -->
 <section class="intro">
-  <h1>Welcome 2026, My Love 🎆</h1>
-  <p>
-    As this new year begins, I just want you to know how grateful I am for you.  
-    Thank you for being my favorite person, my comfort, and my home.
+  <h1 class="fade-in">Welcome 2026, Mahalo! 🎆</h1>
+  <p class="fade-in delay">
+    As this new year begins, I just want you to know how grateful I am for you.
+    Thank you for being my favorite person, my comfort, and my home. Alabyu mwa
   </p>
-  <span class="hint">Scroll slowly ✨</span>
 </section>
 
-<!-- 📸 Gallery -->
-<main class="gallery">
+<!-- Gallery -->
+<div class="gallery">
 
-  <!-- PHOTO 1 -->
-  <section class="slide">
-    <img src="images/photo1.jpg" />
+  <!-- PHOTO TEMPLATE -->
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo1.jpg">
     <div class="caption">
-      <h2>My first favorite memory 💕</h2>
+      <h3>My first favorite memory 💕</h3>
       <p>We finally braved the room. Opened up and showed everyone we loved each other.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 2 -->
-  <section class="slide">
-    <img src="images/photo2.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo2.jpg">
     <div class="caption">
-      <h2>A day I’ll never forget ✨</h2>
-      <p>It's our first job. Where it all started from nothing to where we are now.</p>
+      <h3>A day I’ll never forget ✨</h3>
+      <p>It's our first job! Where it all started from when we got nothing to where we are now.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 3 -->
-  <section class="slide">
-    <img src="images/photo3.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo3.jpg">
     <div class="caption">
-      <h2>Smiles that I fell in love with 😊</h2>
-      <p>Finally came home after OJT in Thailand. I missed you a lot.</p>
+      <h3>Smiles that I fell in love with 😊</h3>
+      <p>Finally came home after OJT in Thailand. I missed you so much.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 4 -->
-  <section class="slide">
-    <img src="images/photo4.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo4.jpg">
     <div class="caption">
-      <h2>Us being us ❤️</h2>
+      <h3>Us being us ❤️</h3>
       <p>Starbucks. SM BF. I love this photo.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 5 -->
-  <section class="slide">
-    <img src="images/photo5.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo5.jpg">
     <div class="caption">
-      <h2>One of my favorite moments 🥰</h2>
+      <h3>One of my favorite moments 🥰</h3>
       <p>I don’t remember when or where, but I know we were happy.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 6 -->
-  <section class="slide">
-    <img src="images/photo6.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo6.jpg">
     <div class="caption">
-      <h2>Your struggle era 😄</h2>
+      <h3>Your struggle era 😄</h3>
       <p>I witnessed how you struggled, fought, and came back stronger.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 7 -->
-  <section class="slide">
-    <img src="images/photo7.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo7.jpg">
     <div class="caption">
-      <h2>Exactly where I want to be 💗</h2>
-      <p>You witnessed how I struggled, fought, and came back stronger.</p>
+      <h3>Exactly where I want to be 💗</h3>
+      <p>You witnessed my struggles, fights, and comeback.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 8 -->
-  <section class="slide">
-    <img src="images/photo8.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo8.jpg">
     <div class="caption">
-      <h2>A memory close to my heart 💞</h2>
-      <p>First studio after 7 years. Mehehehe.</p>
+      <h3>A memory close to my heart 💞</h3>
+      <p>First studio after 7 years. Mehehe.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 9 -->
-  <section class="slide">
-    <img src="images/photo9.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo9.jpg">
     <div class="caption">
-      <h2>More moments like this 🌸</h2>
-      <p>One of my most single gastos in a day. Worth it. Bye 50k.</p>
+      <h3>More moments like this 🌸</h3>
+      <p>One of my most expensive days. Worth it. Bye 50k.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- PHOTO 10 -->
-  <section class="slide">
-    <img src="images/photo10.jpg" />
+  <div class="photo-card" onclick="reveal(this)">
+    <img src="images/photo10.jpg">
     <div class="caption">
-      <h2>My favorite person, always 💖</h2>
-      <p>Here’s to more memories, laughter, and moments together.</p>
+      <h3>My favorite person, always 💖</h3>
+      <p>No matter the year, it will always be you.</p>
     </div>
-  </section>
+  </div>
 
-</main>
+</div>
+
+<!-- Ending -->
+<section class="ending">
+  <button onclick="showEnding()">Tap this ❤️</button>
+  <p id="finalMessage">
+    No matter where 2026 takes us, I choose you ❤️ today and every year after.
+  </p>
+</section>
 
 <script>
-  document.querySelectorAll('.slide').forEach(slide => {
-    let step = 0;
-    slide.addEventListener('click', () => {
-      step++;
-      if (step === 1) slide.classList.add('show-title');
-      if (step === 2) slide.classList.add('show-sub');
-    });
-  });
+let musicStarted = false;
+
+function reveal(card) {
+  card.classList.toggle("active");
+
+  if (!musicStarted) {
+    document.getElementById("bgMusic").play();
+    musicStarted = true;
+  }
+}
+
+function showEnding() {
+  document.getElementById("finalMessage").classList.add("show");
+  if (!musicStarted) {
+    document.getElementById("bgMusic").play();
+    musicStarted = true;
+  }
+}
 </script>
 
 </body>
