@@ -1,9 +1,9 @@
 /* Reset */
-body{margin:0;font-family:'Quicksand',sans-serif;background:#1a1a1f;color:#f2f2f2;overflow-x:hidden;}
+body{margin:0;font-family:'Quicksand',sans-serif;background:#0b0c1c;color:#f2f2f2;overflow-x:hidden;}
 
-/* Gradient + Particles */
-.background{position:fixed;inset:0;background:linear-gradient(180deg,#2b2d55,#3a244a);z-index:-3;}
-.particles{position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);background-size:120px 120px;animation:drift 40s linear infinite;z-index:-2;}
+/* Background + Particles */
+.background{position:fixed;inset:0;background:linear-gradient(180deg,#0b0c1c,#1d0f2c);z-index:-3;}
+.particles{position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);background-size:120px 120px;animation:drift 60s linear infinite;z-index:-2;}
 @keyframes drift{0%{transform:translate(0,0);}50%{transform:translate(10px,-60px);}100%{transform:translate(0,-120px);}}
 
 /* Desktop warning */
@@ -12,7 +12,7 @@ body{margin:0;font-family:'Quicksand',sans-serif;background:#1a1a1f;color:#f2f2f
 
 /* Intro card */
 .intro-card{
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.7);
   border-radius: 24px;
   padding: 28px 18px;
   margin: 24px auto;
@@ -20,14 +20,14 @@ body{margin:0;font-family:'Quicksand',sans-serif;background:#1a1a1f;color:#f2f2f
   box-shadow:0 12px 40px rgba(0,0,0,0.6);
   animation:fadeUp 1s ease;
 }
-.opening-msg{animation:fadeUp 1s ease forwards;font-size:1.1em;line-height:1.6;}
+.opening-msg{animation:fadeUp 1s ease forwards;font-size:1.15em;line-height:1.6;color:#ffd6e5;text-shadow:0 1px 4px rgba(0,0,0,0.5);}
 .tap-instruction{
   font-family:'Pacifico',cursive;
   font-size:1em;
   color:#ffd6e5;
   margin-top:16px;
-  padding:8px 12px;
-  background:rgba(0,0,0,0.4);
+  padding:8px 14px;
+  background:rgba(0,0,0,0.3);
   border-radius:16px;
   display:inline-block;
   animation: bounce 1.5s infinite alternate;
@@ -35,18 +35,59 @@ body{margin:0;font-family:'Quicksand',sans-serif;background:#1a1a1f;color:#f2f2f
 
 /* Content */
 .content{padding:16px;text-align:center;}
-h1{font-family:'Playfair Display',serif;color:#ffd6e5;font-size:2em;margin:20px 0;animation:fadeUp 1s ease;}
+h1{font-family:'Playfair Display',serif;font-size:2em;margin:20px 0;animation:fadeUp 1s ease;}
 
 /* Photos */
-.photos{display:flex;flex-direction:column;align-items:center;gap:24px;margin:20px 0;}
-.photo{width:100%;max-width:360px;cursor:pointer;transition:transform 0.25s ease;}
-.photo img{width:100%;border-radius:22px;box-shadow:0 12px 30px rgba(0,0,0,0.4);transition:transform 0.3s ease;}
+.photos{display:flex;flex-direction:column;align-items:center;gap:28px;margin:20px 0;}
+.photo{width:100%;max-width:360px;cursor:pointer;transition:transform 0.25s ease;opacity:0;transform:translateY(20px);position:relative;}
+.photo img{width:100%;border-radius:22px;box-shadow:0 12px 30px rgba(0,0,0,0.5);transition:transform 0.3s ease;}
 .photo.revealed img{transform:scale(1.04);}
+
+/* Soft glow behind revealed photo */
+.photo::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(255,214,229,0.4) 0%, transparent 70%);
+  border-radius: 22px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+.photo.revealed::before {
+  opacity: 1;
+  animation: glowPulse 1.2s ease-in-out infinite alternate;
+}
+@keyframes glowPulse {0%{transform:translate(-50%,-50%) scale(1);}100%{transform:translate(-50%,-50%) scale(1.05);}}
+
+/* Caption */
 .caption{opacity:0;transform:translateY(12px);transition:all 0.6s ease;text-align:center;margin-top:12px;}
 .photo.revealed .caption{opacity:1;transform:translateY(0);}
 .caption h3{font-family:'Playfair Display',serif;color:#ffd6e5;margin-bottom:6px;}
 .caption p{font-family:'Pacifico',cursive;font-size:0.95em;color:#f0e6eb;}
 .photo.tap img{transform:scale(0.98);}
+
+/* Floating particles */
+.tap-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ffd6e5;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: floatParticle 0.8s forwards;
+}
+@keyframes floatParticle {
+  0% {transform: translate(0,0) scale(1); opacity:1;}
+  100% {transform: translate(var(--dx), var(--dy)) scale(0); opacity:0;}
+}
+
+/* Fade-in on scroll */
+.photo.fade-in{opacity:1;transform:translateY(0);transition:all 0.8s ease-out;}
 
 /* Ending */
 .ending{margin:40px 0;}
