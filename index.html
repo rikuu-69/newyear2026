@@ -20,7 +20,7 @@
 
 <div class="mobile-only">
 
-  <!-- Background + particles -->
+  <!-- Background -->
   <div class="background"></div>
   <div class="particles"></div>
 
@@ -31,96 +31,122 @@
 
   <div class="content">
 
-    <!-- Intro card + instructions -->
+    <!-- Intro -->
     <div class="intro-card">
-      <h1 class="opening-msg glow-shimmer">Welcome 2026, Mahaloo! 🎆</h1>
-      <p class="opening-msg">As this new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home. Alabyuu! Mwaa</p>
+      <h1 class="opening-msg glow-shimmer">WELCOME 2026, MAHALOO! 🎆</h1>
+
+      <p class="intro-text">
+        As this new year begins, I just want you to know how grateful I am for you.
+        Thank you for being my favorite person, my comfort, and my home.
+        Alabyuu. Mwaa 💕
+      </p>
+
       <p class="tap-instruction">💫 Tap each photo to reveal the memories 💖</p>
     </div>
 
     <!-- Photos -->
     <div class="photos">
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo1.jpg" alt="Memory 1">
+        <img src="images/photo1.jpg">
         <div class="caption">
           <h3>My first favorite memory 💕</h3>
           <p>We finally braved the room and showed everyone we loved each other.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo2.jpg" alt="Memory 2">
+        <img src="images/photo2.jpg">
         <div class="caption">
           <h3>A day I’ll never forget ✨</h3>
           <p>Our first job — from nothing to where we are now.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo3.jpg" alt="Memory 3">
+        <img src="images/photo3.jpg">
         <div class="caption">
-          <h3>Smile that I fell in love with 😊</h3>
-          <p>Finally came home after OJT in Thailand. I missed you loooots.</p>
+          <h3>Smile I fell in love with 😊</h3>
+          <p>Finally came home after OJT in Thailand! I missed you looots.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo4.jpg" alt="Memory 4">
+        <img src="images/photo4.jpg">
         <div class="caption">
           <h3>Us being us ❤️</h3>
           <p>Starbucks. SM BF. I love this photo.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo5.jpg" alt="Memory 5">
+        <img src="images/photo5.jpg">
         <div class="caption">
           <h3>One of my favorite moments 🥰</h3>
-          <p>I don’t remember when, but we were happy that day.</p>
+          <p>I don’t remember when — but I remember how happy we were.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo6.jpg" alt="Memory 6">
+        <img src="images/photo6.jpg">
         <div class="caption">
           <h3>Your struggle era 😄</h3>
-          <p>I witnessed how you struggled, fought, and came back stronger.</p>
+          <p>I watched you struggle, fight, and come back stronger.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo7.jpg" alt="Memory 7">
+        <img src="images/photo7.jpg">
         <div class="caption">
           <h3>Exactly where I want to be 💗</h3>
-          <p>You witnessed how I struggled, fought, and came back stronger.</p>
+          <p>You witnessed my struggles, my fights, and my growth.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo8.jpg" alt="Memory 8">
+        <img src="images/photo8.jpg">
         <div class="caption">
           <h3>A memory close to my heart 💞</h3>
-          <p>First studio! After 7 years. mehehehe</p>
+          <p>First studio. After 7 years. Mehehehe.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo9.jpg" alt="Memory 9">
+        <img src="images/photo9.jpg">
         <div class="caption">
           <h3>More moments like this, please 🌸</h3>
-          <p>One of my most extravagant days. Worth it! Bye 50k</p>
+          <p>One of my most expensive days — worth it. Bye 50k.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
-        <img src="images/photo10.jpg" alt="Memory 10">
+        <img src="images/photo10.jpg">
         <div class="caption">
           <h3>My favorite person, always 💖</h3>
-          <p>No matter the year, it will always be you.</p>
+          <p>No matter the year — it will always be you.</p>
         </div>
       </div>
+
     </div>
 
     <!-- Ending -->
     <div class="ending">
       <button onclick="showEnding()">Tap this ❤️</button>
-      <p id="finalMessage">No matter where 2026 takes us, I choose you ❤️ today and every year after.</p>
 
-      <!-- Hidden Note -->
-      <div id="progressiveNote" class="progressive-ender" style="display:none;">
+      <p id="finalMessage">
+        No matter where 2026 takes us, I choose you — today and every year after ❤️
+      </p>
+
+      <div id="progressiveNote" class="progressive-ender">
         <h3>Note from me 💌</h3>
-        <p>Mahaloo! I just started learning coding and AI helps me a lot. In 2026, I’m starting a personal project to capture our memories. Take lots of photos — I’ll make a story of our years, our wins, our challenges, and everything in between. Love you! 💖</p>
+        <p>
+          Mahaloo! Just started learning coding, and honestly, AI helps me a lot.
+          In 2026, I’m starting a personal project — to capture us.
+          So take lots of photos, okay?
+          I’ll turn them into a story of our years, our wins, our challenges,
+          and everything in between.
+          This is just the beginning. I love you. 💖
+        </p>
       </div>
     </div>
 
@@ -139,9 +165,10 @@ function reveal(photo){
 
 function showEnding(){
   document.getElementById('finalMessage').classList.add('show');
+  document.getElementById('progressiveNote').classList.add('show');
+
   const music = document.getElementById('bgMusic');
   if(music.paused) music.play();
-  document.getElementById('progressiveNote').style.display='block';
 }
 
 const photos = document.querySelectorAll('.photo');
@@ -152,10 +179,8 @@ const observer = new IntersectionObserver(entries=>{
     }
   });
 },{threshold:0.3});
-photos.forEach(photo=>observer.observe(photo));
+photos.forEach(p=>observer.observe(p));
 </script>
 
 </body>
 </html>
-
-
