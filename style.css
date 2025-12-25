@@ -1,12 +1,109 @@
+/* ===== Base ===== */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+  color: #3a3a3a;
+
+  /* Soft romantic background */
+  background: linear-gradient(
+    180deg,
+    #fff0f6 0%,
+    #ffffff 40%,
+    #fff7fb 100%
+  );
+}
+
+/* ===== Title ===== */
+h1 {
+  color: #e63975;
+  font-size: 2.2em;
+  margin: 30px 0 10px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Text ===== */
+p {
+  font-size: 1.05em;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 18px auto;
+}
+
+/* ===== Photo Section ===== */
+.photos {
+  margin-top: 30px;
+}
+
+/* Each photo card */
 .photo {
-  margin-bottom: 28px;
+  background: white;
+  border-radius: 18px;
+  padding: 14px;
+  margin: 26px auto;
+  max-width: 380px;
+
+  /* Soft card shadow */
+  box-shadow: 0 10px 25px rgba(230, 57, 117, 0.12);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Tap effect */
+.photo:active {
+  transform: scale(0.97);
+  box-shadow: 0 6px 18px rgba(230, 57, 117, 0.18);
+}
+
+.photos img {
+  width: 100%;
+  border-radius: 14px;
   cursor: pointer;
 }
 
+/* ===== Captions ===== */
 .caption {
-  display: none;
+  margin-top: 10px;
   font-size: 0.95em;
   color: #e63975;
-  margin-top: 8px;
-  transition: all 0.3s ease;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Visible state */
+.caption.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Button ===== */
+button {
+  background: linear-gradient(135deg, #e63975, #ff7aa2);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1em;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 30px auto 10px;
+  display: block;
+
+  box-shadow: 0 8px 20px rgba(230, 57, 117, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 12px rgba(230, 57, 117, 0.45);
+}
+
+/* ===== Final Message ===== */
+#secretMessage {
+  font-size: 1.15em;
+  color: #e63975;
+  margin-top: 20px;
 }
