@@ -95,6 +95,11 @@ button{background:#e07aa0;color:white;border:none;padding:14px 30px;border-radiu
 #finalMessage{opacity:0;margin-top:20px;transition:opacity 1s ease;}
 #finalMessage.show{opacity:1;}
 
+/* Progressive ender */
+.progressive-ender{margin-top:28px;background:rgba(0,0,0,0.6);padding:16px;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,0.4);}
+.progressive-ender h3{font-family:'Playfair Display',serif;color:#ffd6e5;margin-bottom:8px;}
+.progressive-ender p{font-family:'Pacifico',cursive;font-size:0.95em;color:#f0e6eb;line-height:1.5;}
+
 /* Animations */
 @keyframes fadeUp{0%{opacity:0;transform:translateY(12px);}100%{opacity:1;transform:translateY(0);}}
 @keyframes bounce{0%{transform:translateY(0);}100%{transform:translateY(-6px);}}
