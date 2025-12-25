@@ -1,163 +1,31 @@
-/* Desktop warning */
-.desktop-warning {
-  display: none;
-  height: 100vh;
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 40px;
-  font-family: 'Quicksand', sans-serif;
-}
+body { margin:0; overflow:hidden; font-family:'Quicksand',sans-serif; }
 
-@media (min-width: 768px) {
-  .mobile-only { display: none; }
-  .desktop-warning {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
+/* Background gradient & particles */
+.background { position: fixed; inset:0; background: linear-gradient(180deg,#2b2d55,#3a244a); z-index:-3; }
+.particles { position: fixed; inset:0; background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size:120px 120px; animation: drift 40s linear infinite; z-index:-2;}
+@keyframes drift { from{transform:translateY(0);} to{transform:translateY(-120px);} }
 
-/* Base */
-body {
-  margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  overflow: hidden;
-}
+/* Slides container */
+.slides-container { width:100vw; height:100vh; display:flex; flex-wrap:nowrap; overflow:hidden; position:relative; }
 
-/* Soft night gradient */
-.background {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(180deg, #2b2d55, #3a244a);
-  z-index: -3;
-}
-
-/* Gentle particles */
-.particles {
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
-  background-size: 120px 120px;
-  animation: drift 40s linear infinite;
-  z-index: -2;
-}
-
-@keyframes drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(-120px); }
-}
-
-/* Intro */
-.intro {
-  padding: 80px 20px;
-  text-align: center;
-  color: #f6f6f6;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  color: #ffd6e5;
-}
-
-.fade-in {
-  animation: fadeUp 1.5s ease forwards;
-}
-
-.delay {
-  animation-delay: 0.5s;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Scroll snapping */
-.scroll-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
-/* Sections */
-.snap {
-  scroll-snap-align: start;
-}
-
-.photo-card,
-.ending {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  color: #f2f2f2;
-}
-
-/* Tap feedback */
-.photo-card.tap img {
-  transform: scale(0.98);
-}
+/* Each slide */
+.slide { flex:0 0 100%; display:flex; flex-direction:column; justify-content:center; align-items:center; transition: transform 0.3s ease; text-align:center; color:#f2f2f2; padding:20px; position:absolute; top:0; left:0; opacity:0; pointer-events:none; }
+.slide.active { opacity:1; pointer-events:auto; }
 
 /* Images */
-.photo-card img {
-  width: 100%;
-  max-width: 340px;
-  border-radius: 22px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-  transition: transform 0.25s ease;
-}
-
-.photo-card.active img {
-  transform: scale(1.04);
-}
+.slide img { width:100%; max-width:340px; border-radius:22px; box-shadow:0 12px 30px rgba(0,0,0,0.4); transition: transform 0.25s ease; }
+.slide.revealed img { transform:scale(1.04); }
 
 /* Captions */
-.caption {
-  text-align: center;
-  max-width: 340px;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: all 0.6s ease;
-}
+.caption { opacity:0; transform:translateY(12px); transition:all 0.6s ease; }
+.slide.revealed .caption { opacity:1; transform:translateY(0); }
+.caption h3 { font-family:'Playfair Display',serif; color:#ffd6e5; margin-top:18px; }
+.caption p { font-family:'Pacifico',cursive; font-size:0.95em; color:#f0e6eb; }
 
-.photo-card.active .caption {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.caption h3 {
-  margin-top: 18px;
-  color: #ffd6e5;
-  font-family: 'Playfair Display', serif;
-}
-
-.caption p {
-  font-family: 'Pacifico', cursive;
-  font-size: 0.95em;
-  color: #f0e6eb;
-}
+/* Tap feedback */
+.slide.tap img { transform:scale(0.98); }
 
 /* Ending */
-button {
-  background: #e07aa0;
-  color: white;
-  border: none;
-  padding: 14px 30px;
-  border-radius: 30px;
-  font-size: 1em;
-}
-
-#finalMessage {
-  opacity: 0;
-  margin-top: 20px;
-  transition: opacity 1s ease;
-}
-
-#finalMessage.show {
-  opacity: 1;
-}
+button { background:#e07aa0;color:white;border:none;padding:14px 30px;border-radius:30px;font-size:1em; }
+#finalMessage { opacity:0;margin-top:20px; transition:opacity 1s ease; }
+#finalMessage.show { opacity:1; }
