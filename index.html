@@ -33,7 +33,7 @@
 
     <!-- Intro card + instructions -->
     <div class="intro-card">
-      <h1 class="opening-msg shimmer">Welcome 2026, Mahaloo! 🎆</h1>
+      <h1 class="opening-msg glow-shimmer">Welcome 2026, Mahaloo! 🎆</h1>
       <p class="opening-msg">As this new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home. Alabyuu! Mwaa</p>
       <p class="tap-instruction">💫 Tap each photo to reveal the memories 💖</p>
     </div>
@@ -120,7 +120,7 @@
       <!-- Hidden Note -->
       <div id="progressiveNote" class="progressive-ender" style="display:none;">
         <h3>Note from me 💌</h3>
-        <p>Ayoo Mahaloo, I just started learning coding and AI helps me a lot. In 2026, I’m starting a personal project to capture our memories. Take lots of photos — I’ll make a story of our years, our wins, our challenges, and everything in between. Love you! 💖</p>
+        <p>Mahaloo! I just started learning coding and AI helps me a lot. In 2026, I’m starting a personal project to capture our memories. Take lots of photos — I’ll make a story of our years, our wins, our challenges, and everything in between. Love you! 💖</p>
       </div>
     </div>
 
@@ -133,7 +133,6 @@ function reveal(photo){
   photo.classList.add('tap');
   setTimeout(()=> photo.classList.remove('tap'),150);
 
-  // Play music on first tap
   const music = document.getElementById('bgMusic');
   if(music.paused) music.play();
 }
@@ -142,12 +141,9 @@ function showEnding(){
   document.getElementById('finalMessage').classList.add('show');
   const music = document.getElementById('bgMusic');
   if(music.paused) music.play();
-
-  // Reveal the note
   document.getElementById('progressiveNote').style.display='block';
 }
 
-// Scroll fade-in
 const photos = document.querySelectorAll('.photo');
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
