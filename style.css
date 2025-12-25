@@ -75,10 +75,7 @@ h1{font-family:'Playfair Display',serif;font-size:2em;margin:20px 0;animation:fa
   transition: opacity 0.5s ease;
   z-index: -1;
 }
-.photo.revealed::before {
-  opacity: 1;
-  animation: glowPulse 1.2s ease-in-out infinite alternate;
-}
+.photo.revealed::before {opacity: 1;animation: glowPulse 1.2s ease-in-out infinite alternate;}
 @keyframes glowPulse {0%{transform:translate(-50%,-50%) scale(1);}100%{transform:translate(-50%,-50%) scale(1.05);}}
 
 /* Caption */
