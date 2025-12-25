@@ -1,184 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome 2026 ❤️</title>
+  <meta charset="UTF-8" />
+  <title>Welcome 2026, My Love</title>
+  <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<!-- ⭐ Starry Background -->
 <div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
 
-<audio id="bgMusic" src="music/lost-stars.mp3"></audio>
+<!-- 🎵 Background Music -->
+<audio autoplay loop>
+  <source src="music/lost-stars.mp3" type="audio/mpeg">
+</audio>
 
-<h1>Welcome 2026, My Love 🎆</h1>
+<!-- 🌟 Opening Message -->
+<section class="intro">
+  <h1>Welcome 2026, My Love 🎆</h1>
+  <p>
+    As this new year begins, I just want you to know how grateful I am for you.  
+    Thank you for being my favorite person, my comfort, and my home.
+  </p>
+  <span class="hint">Scroll slowly ✨</span>
+</section>
 
-<p>
-  As this new year begins, I just want you to know how grateful I am for you.
-  Thank you for being my favorite person, my comfort, and my home.
-</p>
+<!-- 📸 Gallery -->
+<main class="gallery">
 
-<div id="countdown"></div>
-
-<button class="music-btn" onclick="playMusic()">Play our song 🎵</button>
-
-<p class="hint">Tap each photo to reveal its memory 💕</p>
-
-<div class="photos">
-
-  <div class="photo">
-    <img src="images/photo1.jpg" onclick="toggle(1, event)">
-    <div id="c1" class="caption">
-      <strong>My first favorite memory 💕</strong>
-      <small>We finally braved the room. Opened up and showed everyone we loved each other.</small>
+  <!-- PHOTO 1 -->
+  <section class="slide">
+    <img src="images/photo1.jpg" />
+    <div class="caption">
+      <h2>My first favorite memory 💕</h2>
+      <p>We finally braved the room. Opened up and showed everyone we loved each other.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo2.jpg" onclick="toggle(2, event)">
-    <div id="c2" class="caption">
-      <strong>A day I’ll never forget ✨</strong>
-      <small>It's our first job. Where it all started — from having nothing to where we are now.</small>
+  <!-- PHOTO 2 -->
+  <section class="slide">
+    <img src="images/photo2.jpg" />
+    <div class="caption">
+      <h2>A day I’ll never forget ✨</h2>
+      <p>It's our first job. Where it all started from nothing to where we are now.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo3.jpg" onclick="toggle(3, event)">
-    <div id="c3" class="caption">
-      <strong>Smiles that I fell in love with 😊</strong>
-      <small>Ayiee. Finally came home after OJT in Thailand. I missed you so much.</small>
+  <!-- PHOTO 3 -->
+  <section class="slide">
+    <img src="images/photo3.jpg" />
+    <div class="caption">
+      <h2>Smiles that I fell in love with 😊</h2>
+      <p>Finally came home after OJT in Thailand. I missed you a lot.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo4.jpg" onclick="toggle(4, event)">
-    <div id="c4" class="caption">
-      <strong>Us being us ❤️</strong>
-      <small>Starbucks. SM BF. I love this photo.</small>
+  <!-- PHOTO 4 -->
+  <section class="slide">
+    <img src="images/photo4.jpg" />
+    <div class="caption">
+      <h2>Us being us ❤️</h2>
+      <p>Starbucks. SM BF. I love this photo.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo5.jpg" onclick="toggle(5, event)">
-    <div id="c5" class="caption">
-      <strong>One of my favorite moments 🥰</strong>
-      <small>I don’t remember when or where — but I know we were happy that day.</small>
+  <!-- PHOTO 5 -->
+  <section class="slide">
+    <img src="images/photo5.jpg" />
+    <div class="caption">
+      <h2>One of my favorite moments 🥰</h2>
+      <p>I don’t remember when or where, but I know we were happy.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo6.jpg" onclick="toggle(6, event)">
-    <div id="c6" class="caption">
-      <strong>Your struggle era 😄</strong>
-      <small>I witnessed how you struggled, fought, and came back stronger.</small>
+  <!-- PHOTO 6 -->
+  <section class="slide">
+    <img src="images/photo6.jpg" />
+    <div class="caption">
+      <h2>Your struggle era 😄</h2>
+      <p>I witnessed how you struggled, fought, and came back stronger.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo7.jpg" onclick="toggle(7, event)">
-    <div id="c7" class="caption">
-      <strong>Exactly where I want to be 💗</strong>
-      <small>You witnessed how I struggled, fought, and came back stronger.</small>
+  <!-- PHOTO 7 -->
+  <section class="slide">
+    <img src="images/photo7.jpg" />
+    <div class="caption">
+      <h2>Exactly where I want to be 💗</h2>
+      <p>You witnessed how I struggled, fought, and came back stronger.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo8.jpg" onclick="toggle(8, event)">
-    <div id="c8" class="caption">
-      <strong>A memory close to my heart 💞</strong>
-      <small>First studio — after 7 years. Mehehehe.</small>
+  <!-- PHOTO 8 -->
+  <section class="slide">
+    <img src="images/photo8.jpg" />
+    <div class="caption">
+      <h2>A memory close to my heart 💞</h2>
+      <p>First studio after 7 years. Mehehehe.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo9.jpg" onclick="toggle(9, event)">
-    <div id="c9" class="caption">
-      <strong>More moments like this, please 🌸</strong>
-      <small>One of my most expensive gastos in a day. Worth it. Bye 50k.</small>
+  <!-- PHOTO 9 -->
+  <section class="slide">
+    <img src="images/photo9.jpg" />
+    <div class="caption">
+      <h2>More moments like this 🌸</h2>
+      <p>One of my most single gastos in a day. Worth it. Bye 50k.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="photo">
-    <img src="images/photo10.jpg" onclick="toggle(10, event)">
-    <div id="c10" class="caption">
-      <strong>My favorite person, always 💖</strong>
-      <small>And I choose you — every single time.</small>
+  <!-- PHOTO 10 -->
+  <section class="slide">
+    <img src="images/photo10.jpg" />
+    <div class="caption">
+      <h2>My favorite person, always 💖</h2>
+      <p>Here’s to more memories, laughter, and moments together.</p>
     </div>
-  </div>
+  </section>
 
-</div>
-
-<button id="revealBtn" onclick="finalReveal()">One last thing ❤️</button>
-
-<p id="secretMessage">
-  No matter where 2026 takes us, I choose you — today and every year after.
-</p>
-
-<div id="fireworks"></div>
+</main>
 
 <script>
-  function toggle(n, e) {
-    document.getElementById("c" + n).classList.toggle("show");
-    spawnHeart(e.clientX, e.clientY);
-  }
-
-  function spawnHeart(x, y) {
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.style.left = x + "px";
-    h.style.top = y + "px";
-    document.body.appendChild(h);
-    setTimeout(() => h.remove(), 1000);
-  }
-
-  function playMusic() {
-    const m = document.getElementById("bgMusic");
-    m.volume = 0;
-    m.play();
-    let v = 0;
-    const fade = setInterval(() => {
-      if (v < 0.8) {
-        v += 0.02;
-        m.volume = v;
-      } else clearInterval(fade);
-    }, 200);
-  }
-
-  function finalReveal() {
-    document.getElementById("secretMessage").classList.add("show");
-    document.getElementById("revealBtn").style.display = "none";
-    launchFireworks();
-  }
-
-  function launchFireworks() {
-    const f = document.getElementById("fireworks");
-    f.classList.add("active");
-    setTimeout(() => f.classList.remove("active"), 4000);
-  }
-
-  function updateCountdown() {
-    const target = new Date("January 1, 2026 00:00:00").getTime();
-    const now = new Date().getTime();
-    const diff = target - now;
-
-    if (diff <= 0) {
-      document.getElementById("countdown").innerHTML = "🎆 Happy New Year 2026! 🎆";
-      return;
-    }
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / (1000 * 60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    document.getElementById("countdown").innerHTML =
-      `⏳ ${d}d ${h}h ${m}m ${s}s until 2026`;
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
+  document.querySelectorAll('.slide').forEach(slide => {
+    let step = 0;
+    slide.addEventListener('click', () => {
+      step++;
+      if (step === 1) slide.classList.add('show-title');
+      if (step === 2) slide.classList.add('show-sub');
+    });
+  });
 </script>
 
 </body>
