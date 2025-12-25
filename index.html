@@ -33,14 +33,14 @@
 
     <!-- Intro card + instructions -->
     <div class="intro-card">
-      <h1 class="opening-msg">Welcome 2026, Mahaloo! 🎆</h1>
-      <p class="opening-msg">As the new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home. Alabyuu! 💖</p>
-      <div class="tap-instruction">💫 Tap each photo to reveal the memories 💕</div>
+      <h1 class="opening-msg shimmer">Welcome 2026, Mahaloo! 🎆</h1>
+      <p class="opening-msg shimmer">As this new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home. Alabyuu! Mwaa</p>
+      <p class="tap-instruction shimmer">💫 Tap each photo to reveal the memories 💖</p>
     </div>
 
     <!-- Photos -->
     <div class="photos">
-      <!-- photo 1-10 as before -->
+      <!-- Repeat this block for each photo -->
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo1.jpg" alt="Memory 1">
         <div class="caption">
@@ -117,11 +117,12 @@
     <div class="ending">
       <button onclick="showEnding()">Tap this ❤️</button>
       <p id="finalMessage">No matter where 2026 takes us, I choose you ❤️ today and every year after.</p>
-      <div class="progressive-ender">
-        <h3>📖 A little personal note</h3>
-        <p>This year I’ve just started learning coding, and AI has been my amazing helper. I’m building little projects and learning every day — just like us growing together. 💕</p>
-        <p>In 2026, I’ll have a personal project to capture our journey. So take a lot of photos! We’ll create a story of our years, our wins, our challenges, and everything in between. Can’t wait to see it all unfold with you. 🌟</p>
-      </div>
+    </div>
+
+    <!-- Progressive story ender -->
+    <div class="progressive-ender">
+      <h3>Our Journey & My 2026 Project 🌟</h3>
+      <p>Hey love! I just started learning coding, and AI has helped me a lot. This year I want to create a personal project that captures our story — our wins, our challenges, our laughs. Make sure to take lots of photos! Each memory will become a part of our progressive story in 2026. 💕</p>
     </div>
 
   </div>
@@ -133,33 +134,10 @@ function reveal(photo){
   photo.classList.add('tap');
   setTimeout(()=> photo.classList.remove('tap'),150);
 
-  // Floating particles
-  for(let i=0;i<12;i++){
-    const particle = document.createElement('div');
-    particle.className='tap-particle';
-    const dx = (Math.random()-0.5)*80+'px';
-    const dy = (Math.random()-0.5)*80+'px';
-    particle.style.setProperty('--dx', dx);
-    particle.style.setProperty('--dy', dy);
-    photo.appendChild(particle);
-    setTimeout(()=> particle.remove(),800);
-  }
-
   // Play music on first tap
   const music = document.getElementById('bgMusic');
   if(music.paused) music.play();
 }
-
-// Fade in photos on scroll
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add('fade-in');}
-  });
-},{threshold:0.2});
-
-document.querySelectorAll('.photo').forEach(photo=>{
-  observer.observe(photo);
-});
 
 function showEnding(){
   document.getElementById('finalMessage').classList.add('show');
