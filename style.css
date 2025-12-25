@@ -1,109 +1,101 @@
-/* ===== Base ===== */
 body {
   margin: 0;
   padding: 20px;
   font-family: "Helvetica Neue", Arial, sans-serif;
   text-align: center;
   color: #3a3a3a;
-
-  /* Soft romantic background */
-  background: linear-gradient(
-    180deg,
-    #fff0f6 0%,
-    #ffffff 40%,
-    #fff7fb 100%
-  );
+  background: linear-gradient(180deg, #fff0f6, #ffffff);
 }
 
-/* ===== Title ===== */
 h1 {
   color: #e63975;
   font-size: 2.2em;
-  margin: 30px 0 10px;
-  letter-spacing: 0.5px;
+  margin-top: 30px;
 }
 
-/* ===== Text ===== */
 p {
-  font-size: 1.05em;
-  line-height: 1.7;
   max-width: 520px;
   margin: 18px auto;
+  line-height: 1.7;
 }
 
-/* ===== Photo Section ===== */
+.hint {
+  font-style: italic;
+  color: #e63975;
+}
+
 .photos {
   margin-top: 30px;
 }
 
-/* Each photo card */
 .photo {
   background: white;
   border-radius: 18px;
   padding: 14px;
   margin: 26px auto;
   max-width: 380px;
-
-  /* Soft card shadow */
-  box-shadow: 0 10px 25px rgba(230, 57, 117, 0.12);
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 25px rgba(230, 57, 117, 0.15);
 }
 
-/* Tap effect */
-.photo:active {
-  transform: scale(0.97);
-  box-shadow: 0 6px 18px rgba(230, 57, 117, 0.18);
-}
-
-.photos img {
+.photo img {
   width: 100%;
   border-radius: 14px;
   cursor: pointer;
 }
 
-/* ===== Captions ===== */
 .caption {
-  margin-top: 10px;
-  font-size: 0.95em;
-  color: #e63975;
-
-  /* Animation */
   opacity: 0;
   transform: translateY(-6px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: all 0.4s ease;
+  color: #e63975;
+  margin-top: 10px;
 }
 
-/* Visible state */
 .caption.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ===== Button ===== */
 button {
   background: linear-gradient(135deg, #e63975, #ff7aa2);
   color: white;
   border: none;
   padding: 14px 28px;
-  font-size: 1em;
   border-radius: 30px;
+  font-size: 1em;
+  margin-top: 30px;
   cursor: pointer;
-  margin: 30px auto 10px;
-  display: block;
-
-  box-shadow: 0 8px 20px rgba(230, 57, 117, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(230, 57, 117, 0.4);
 }
 
-button:active {
-  transform: scale(0.95);
-  box-shadow: 0 4px 12px rgba(230, 57, 117, 0.45);
-}
-
-/* ===== Final Message ===== */
 #secretMessage {
-  font-size: 1.15em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease;
+  font-size: 1.2em;
   color: #e63975;
   margin-top: 20px;
+}
+
+#secretMessage.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 1s ease forwards;
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.4);
+  }
 }
