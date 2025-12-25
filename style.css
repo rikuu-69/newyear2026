@@ -20,7 +20,25 @@ body{margin:0;font-family:'Quicksand',sans-serif;background:#0b0c1c;color:#f2f2f
   box-shadow:0 12px 40px rgba(0,0,0,0.6);
   animation:fadeUp 1s ease;
 }
+.opening-msg, .tap-instruction{position:relative;overflow:hidden;display:inline-block;}
+
+/* Shimmer effect */
+@keyframes shimmer{
+  0%{background-position:-250% 0;}
+  100%{background-position:250% 0;}
+}
+.shimmer{
+  background: linear-gradient(90deg, rgba(255,214,229,0.2) 0%, rgba(255,214,229,0.6) 50%, rgba(255,214,229,0.2) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2.5s infinite linear;
+}
+
+/* Opening message */
 .opening-msg{animation:fadeUp 1s ease forwards;font-size:1.15em;line-height:1.6;color:#ffd6e5;text-shadow:0 1px 4px rgba(0,0,0,0.5);}
+
+/* Tap instruction */
 .tap-instruction{
   font-family:'Pacifico',cursive;
   font-size:1em;
