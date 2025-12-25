@@ -9,97 +9,117 @@
 
 <body>
 
-  <h1>Welcome 2026, My Love 🎆</h1>
+<h1>Welcome 2026, My Love 🎆</h1>
 
-  <p>
-    As this new year begins, I just want you to know how grateful I am for you.
-    Thank you for being my favorite person, my comfort, and my home.
-  </p>
+<p>
+  As this new year begins, I just want you to know how grateful I am for you.
+  Thank you for being my favorite person, my comfort, and my home.
+</p>
 
-  <p><em>Tap each photo to reveal its memory 💕</em></p>
+<p class="hint">Tap a photo to reveal its memory 💕</p>
 
-  <div class="photos">
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" src="music/lost-stars.mp3" loop></audio>
 
-    <div class="photo">
-      <img src="images/photo1.jpg" onclick="toggle(1)">
-      <p id="c1" class="caption" style="display:none;">Our first favorite memory 💕</p>
-    </div>
+<div class="photos">
 
-    <div class="photo">
-      <img src="images/photo2.jpg" onclick="toggle(2)">
-      <p id="c2" class="caption" style="display:none;">A day I’ll never forget ✨</p>
-    </div>
-
-    <div class="photo">
-      <img src="images/photo3.jpg" onclick="toggle(3)">
-      <p id="c3" class="caption" style="display:none;">Smiles that feel like home 😊</p>
-    </div>
-
-    <div class="photo">
-      <img src="images/photo4.jpg" onclick="toggle(4)">
-      <p id="c4" class="caption" style="display:none;">Us being us ❤️</p>
-    </div>
-
-    <div class="photo">
-      <img src="images/photo5.jpg" onclick="toggle(5)">
-      <p id="c5" class="caption" style="display:none;">One of my favorite moments 🥰</p>
-    </div>
-
-    <div class="photo">
-      <img src="images/photo6.jpg" onclick="toggle(6)">
-      <p id="c6" class="caption" style="display:none;">Laughing with you never gets old 😄</p>
-    </div>
-
-    <div class="photo">
-      <img src="images/photo7.jpg" onclick="toggle(7)">
-      <p id="c7" class="caption" style="display:none;">Exactly where I want to be 💗</p>
-    </div>
-
-    <div class="photo">
-      <img src="images/photo8.jpg" onclick="toggle(8)">
-      <p id="c8" class="caption" style="display:none;">A memory close to my heart 💞</p>
-    </div>
-
-    <div class="photo">
-      <img src="images/photo9.jpg" onclick="toggle(9)">
-      <p id="c9" class="caption" style="display:none;">More moments like this, please 🌸</p>
-    </div>
-
-    <div class="photo">
-      <img src="images/photo10.jpg" onclick="toggle(10)">
-      <p id="c10" class="caption" style="display:none;">My favorite person, always 💖</p>
-    </div>
-
+  <!-- PHOTO 1 -->
+  <div class="photo">
+    <img src="images/photo1.jpg" onclick="handleTap(1, event)">
+    <p id="c1" class="caption">Our first favorite memory 💕</p>
   </div>
 
-  <button id="revealBtn">One last thing ❤️</button>
+  <div class="photo">
+    <img src="images/photo2.jpg" onclick="handleTap(2, event)">
+    <p id="c2" class="caption">A day I’ll never forget ✨</p>
+  </div>
 
-  <p id="secretMessage" style="display:none;">
-    No matter where 2026 takes us, I choose you — today and every year after.
-  </p>
+  <div class="photo">
+    <img src="images/photo3.jpg" onclick="handleTap(3, event)">
+    <p id="c3" class="caption">Smiles that feel like home 😊</p>
+  </div>
 
-  <script>
-    function toggle(n) {
-      const el = document.getElementById("c" + n);
+  <div class="photo">
+    <img src="images/photo4.jpg" onclick="handleTap(4, event)">
+    <p id="c4" class="caption">Us being us ❤️</p>
+  </div>
 
-      if (el.classList.contains("show")) {
-        el.classList.remove("show");
-        setTimeout(() => {
-          el.style.display = "none";
-        }, 300);
-      } else {
-        el.style.display = "block";
-        setTimeout(() => {
-          el.classList.add("show");
-        }, 10);
-      }
+  <div class="photo">
+    <img src="images/photo5.jpg" onclick="handleTap(5, event)">
+    <p id="c5" class="caption">One of my favorite moments 🥰</p>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo6.jpg" onclick="handleTap(6, event)">
+    <p id="c6" class="caption">Laughing with you never gets old 😄</p>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo7.jpg" onclick="handleTap(7, event)">
+    <p id="c7" class="caption">Exactly where I want to be 💗</p>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo8.jpg" onclick="handleTap(8, event)">
+    <p id="c8" class="caption">A memory close to my heart 💞</p>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo9.jpg" onclick="handleTap(9, event)">
+    <p id="c9" class="caption">More moments like this, please 🌸</p>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo10.jpg" onclick="handleTap(10, event)">
+    <p id="c10" class="caption">My favorite person, always 💖</p>
+  </div>
+
+</div>
+
+<button id="revealBtn">One last thing ❤️</button>
+
+<p id="secretMessage">
+  No matter where 2026 takes us, I choose you — today and every year after.
+</p>
+
+<script>
+  const music = document.getElementById("bgMusic");
+  let musicStarted = false;
+
+  function handleTap(n, event) {
+    toggleCaption(n);
+    popHearts(event);
+
+    if (!musicStarted) {
+      music.play().catch(() => {});
+      musicStarted = true;
     }
+  }
 
-    document.getElementById("revealBtn").onclick = function () {
-      document.getElementById("secretMessage").style.display = "block";
-      this.style.display = "none";
-    };
-  </script>
+  function toggleCaption(n) {
+    const el = document.getElementById("c" + n);
+    el.classList.toggle("show");
+  }
+
+  function popHearts(event) {
+    for (let i = 0; i < 6; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤️";
+      document.body.appendChild(heart);
+
+      heart.style.left = event.pageX + Math.random() * 20 - 10 + "px";
+      heart.style.top = event.pageY + "px";
+
+      setTimeout(() => heart.remove(), 1000);
+    }
+  }
+
+  document.getElementById("revealBtn").onclick = function () {
+    document.getElementById("secretMessage").classList.add("show");
+    this.style.display = "none";
+  };
+</script>
 
 </body>
 </html>
