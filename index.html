@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome 2026 ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Welcome 2026 ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- Desktop warning -->
@@ -24,14 +25,14 @@
   <div class="particles"></div>
 
   <!-- Music -->
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" loop preload="auto">
     <source src="music/lost-stars.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Slides container -->
   <div class="slides-container">
 
-    <!-- Slide template -->
+    <!-- Example slide -->
     <div class="slide active" onclick="reveal(this)">
       <img src="images/photo1.jpg">
       <div class="caption">
@@ -48,23 +49,7 @@
       </div>
     </div>
 
-    <div class="slide" onclick="reveal(this)">
-      <img src="images/photo3.jpg">
-      <div class="caption">
-        <h3>Smiles that I fell in love with 😊</h3>
-        <p>You finally came home after OJT in Thailand. I missed you.</p>
-      </div>
-    </div>
-
-    <div class="slide" onclick="reveal(this)">
-      <img src="images/photo4.jpg">
-      <div class="caption">
-        <h3>Us being us ❤️</h3>
-        <p>Starbucks. SM BF. I love this photo.</p>
-      </div>
-    </div>
-
-    <!-- Continue for all photos ... -->
+    <!-- Repeat slides ... -->
     <div class="slide" onclick="reveal(this)">
       <img src="images/photo10.jpg">
       <div class="caption">
@@ -85,69 +70,62 @@
 </div>
 
 <script>
-let currentSlide = 0;
 let slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
 let musicStarted = false;
+let isAnimating = false;
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
+function showSlide(index, direction=1){
+  if(isAnimating || index < 0 || index >= slides.length) return;
+  isAnimating = true;
+
+  let prevSlide = slides[currentSlide];
+  let nextSlide = slides[index];
+
+  nextSlide.style.transform = `translateX(${100 * direction}%)`;
+  nextSlide.classList.add('active');
+
+  requestAnimationFrame(() => {
+    prevSlide.style.transform = `translateX(${-100 * direction}%)`;
+    nextSlide.style.transform = 'translateX(0)';
   });
+
+  setTimeout(() => {
+    prevSlide.classList.remove('active');
+    prevSlide.style.transform = '';
+    currentSlide = index;
+    isAnimating = false;
+  }, 400); // match CSS transition duration
 }
 
-function reveal(slide) {
+function reveal(slide){
   slide.classList.toggle('revealed');
-
-  // Haptic-like visual feedback
   slide.classList.add('tap');
-  setTimeout(() => slide.classList.remove('tap'), 150);
+  setTimeout(()=> slide.classList.remove('tap'),150);
 
-  if (!musicStarted) {
+  if(!musicStarted){
     document.getElementById("bgMusic").play();
     musicStarted = true;
   }
 }
 
-// Ending message
-function showEnding() {
+function showEnding(){
   document.getElementById("finalMessage").classList.add("show");
-  if (!musicStarted) {
+  if(!musicStarted){
     document.getElementById("bgMusic").play();
     musicStarted = true;
   }
 }
 
-// Keyboard for testing
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') nextSlide();
-  if (e.key === 'ArrowLeft') prevSlide();
-});
-
-// Functions to move slides
-function nextSlide() {
-  if (currentSlide < slides.length - 1) {
-    currentSlide++;
-    showSlide(currentSlide);
-  }
-}
-function prevSlide() {
-  if (currentSlide > 0) {
-    currentSlide--;
-    showSlide(currentSlide);
-  }
-}
-
-// Touch swipe for mobile
-let startX = 0;
-let endX = 0;
+// Swipe detection
+let startX=0, endX=0;
 const container = document.querySelector('.slides-container');
-container.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
-container.addEventListener('touchend', (e) => {
+container.addEventListener('touchstart', e=> startX = e.touches[0].clientX);
+container.addEventListener('touchend', e=>{
   endX = e.changedTouches[0].clientX;
-  if (startX - endX > 50) nextSlide();
-  if (endX - startX > 50) prevSlide();
+  if(startX - endX > 50) showSlide(currentSlide+1,1);
+  if(endX - startX > 50) showSlide(currentSlide-1,-1);
 });
 </script>
-
 </body>
 </html>
