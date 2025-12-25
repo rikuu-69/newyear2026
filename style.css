@@ -40,7 +40,7 @@ body {
 .particles {
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(#ffffff33 1px, transparent 1px);
+  background-image: radial-gradient(#ffffff22 1px, transparent 1px);
   background-size: 40px 40px;
   animation: drift 60s linear infinite;
   z-index: -1;
@@ -55,7 +55,7 @@ body {
 .content {
   max-width: 420px;
   margin: auto;
-  padding: 24px 16px 60px;
+  padding: 26px 16px 60px;
 }
 
 /* Intro */
@@ -64,27 +64,22 @@ body {
   margin-bottom: 40px;
 }
 
-.glow-shimmer {
+.opening-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  color: #fff;
-  margin-bottom: 16px;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 18px;
   text-shadow:
-    0 0 14px rgba(255,255,255,0.8),
-    0 0 36px rgba(255,215,160,0.6);
-  animation: glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-  0% { text-shadow: 0 0 10px rgba(255,255,255,.4); }
-  50% { text-shadow: 0 0 30px rgba(255,215,160,.9); }
-  100% { text-shadow: 0 0 10px rgba(255,255,255,.4); }
+    0 0 12px rgba(255,255,255,0.6),
+    0 0 28px rgba(255,210,170,0.5);
 }
 
 .intro-text {
   font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 14px;
+  line-height: 1.55;
+  margin-bottom: 16px;
+  color: #f0f0f0;
 }
 
 .tap-instruction {
@@ -112,7 +107,7 @@ body {
   opacity: 0;
   transform: translateY(20px);
   transition: all .6s ease;
-  box-shadow: 0 12px 30px rgba(0,0,0,.4);
+  box-shadow: 0 12px 30px rgba(0,0,0,.45);
 }
 
 .photo.show-on-scroll {
@@ -130,7 +125,7 @@ body {
   bottom: 0;
   padding: 16px;
   width: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,.75), transparent);
   opacity: 0;
   transition: opacity .4s ease;
 }
@@ -164,8 +159,9 @@ body {
   background: none;
   border: 1px solid #ffd9c2;
   color: #ffd9c2;
-  padding: 10px 22px;
+  padding: 10px 24px;
   border-radius: 30px;
+  font-size: 0.9rem;
 }
 
 #finalMessage {
@@ -182,7 +178,7 @@ body {
   margin-top: 22px;
   padding: 18px;
   border-radius: 14px;
-  background: rgba(255,255,255,.05);
+  background: rgba(255,255,255,.06);
   opacity: 0;
   transition: opacity .8s ease;
 }
