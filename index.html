@@ -9,6 +9,9 @@
 
 <body>
 
+<!-- Starry sky -->
+<div class="stars"></div>
+
 <audio id="bgMusic" src="music/lost-stars.mp3"></audio>
 
 <h1>Welcome 2026, My Love 🎆</h1>
@@ -18,61 +21,26 @@
   Thank you for being my favorite person, my comfort, and my home.
 </p>
 
+<!-- Countdown -->
+<div id="countdown"></div>
+
 <button class="music-btn" onclick="playMusic()">Play our song 🎵</button>
 
 <p class="hint">Tap each photo to reveal its memory 💕</p>
 
 <div class="photos">
 
-  <div class="photo">
-    <img src="images/photo1.jpg" onclick="toggle(1, event)">
-    <p id="c1" class="caption">Our first favorite memory 💕</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo2.jpg" onclick="toggle(2, event)">
-    <p id="c2" class="caption">A day I’ll never forget ✨</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo3.jpg" onclick="toggle(3, event)">
-    <p id="c3" class="caption">Smiles that feel like home 😊</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo4.jpg" onclick="toggle(4, event)">
-    <p id="c4" class="caption">Us being us ❤️</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo5.jpg" onclick="toggle(5, event)">
-    <p id="c5" class="caption">One of my favorite moments 🥰</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo6.jpg" onclick="toggle(6, event)">
-    <p id="c6" class="caption">Laughing with you never gets old 😄</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo7.jpg" onclick="toggle(7, event)">
-    <p id="c7" class="caption">Exactly where I want to be 💗</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo8.jpg" onclick="toggle(8, event)">
-    <p id="c8" class="caption">A memory close to my heart 💞</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo9.jpg" onclick="toggle(9, event)">
-    <p id="c9" class="caption">More moments like this, please 🌸</p>
-  </div>
-
-  <div class="photo">
-    <img src="images/photo10.jpg" onclick="toggle(10, event)">
-    <p id="c10" class="caption">My favorite person, always 💖</p>
-  </div>
+  <!-- Repeatable photo block -->
+  <div class="photo"><img src="images/photo1.jpg" onclick="toggle(1,event)"><p id="c1" class="caption">Our first favorite memory 💕</p></div>
+  <div class="photo"><img src="images/photo2.jpg" onclick="toggle(2,event)"><p id="c2" class="caption">A day I’ll never forget ✨</p></div>
+  <div class="photo"><img src="images/photo3.jpg" onclick="toggle(3,event)"><p id="c3" class="caption">Smiles that feel like home 😊</p></div>
+  <div class="photo"><img src="images/photo4.jpg" onclick="toggle(4,event)"><p id="c4" class="caption">Us being us ❤️</p></div>
+  <div class="photo"><img src="images/photo5.jpg" onclick="toggle(5,event)"><p id="c5" class="caption">One of my favorite moments 🥰</p></div>
+  <div class="photo"><img src="images/photo6.jpg" onclick="toggle(6,event)"><p id="c6" class="caption">Laughing with you never gets old 😄</p></div>
+  <div class="photo"><img src="images/photo7.jpg" onclick="toggle(7,event)"><p id="c7" class="caption">Exactly where I want to be 💗</p></div>
+  <div class="photo"><img src="images/photo8.jpg" onclick="toggle(8,event)"><p id="c8" class="caption">A memory close to my heart 💞</p></div>
+  <div class="photo"><img src="images/photo9.jpg" onclick="toggle(9,event)"><p id="c9" class="caption">More moments like this, please 🌸</p></div>
+  <div class="photo"><img src="images/photo10.jpg" onclick="toggle(10,event)"><p id="c10" class="caption">My favorite person, always 💖</p></div>
 
 </div>
 
@@ -85,48 +53,67 @@
 <div id="fireworks"></div>
 
 <script>
+  /* Photo captions + hearts */
   function toggle(n, e) {
-    const el = document.getElementById("c" + n);
-    el.classList.toggle("show");
+    document.getElementById("c"+n).classList.toggle("show");
     spawnHeart(e.clientX, e.clientY);
   }
 
-  function spawnHeart(x, y) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = x + "px";
-    heart.style.top = y + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 1000);
+  function spawnHeart(x,y) {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.style.left = x+"px";
+    h.style.top = y+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1000);
   }
 
+  /* Music fade-in */
   function playMusic() {
-    const music = document.getElementById("bgMusic");
-    music.volume = 0;
-    music.play();
-    let v = 0;
-    const fade = setInterval(() => {
-      if (v < 0.8) {
-        v += 0.02;
-        music.volume = v;
-      } else {
-        clearInterval(fade);
-      }
-    }, 200);
+    const m = document.getElementById("bgMusic");
+    m.volume = 0;
+    m.play();
+    let v=0;
+    const fade=setInterval(()=>{
+      if(v<0.8){v+=0.02;m.volume=v;} else clearInterval(fade);
+    },200);
   }
 
-  function finalReveal() {
+  /* Final reveal */
+  function finalReveal(){
     document.getElementById("secretMessage").classList.add("show");
-    document.getElementById("revealBtn").style.display = "none";
+    document.getElementById("revealBtn").style.display="none";
     launchFireworks();
   }
 
-  function launchFireworks() {
-    const fw = document.getElementById("fireworks");
-    fw.classList.add("active");
-    setTimeout(() => fw.classList.remove("active"), 4000);
+  function launchFireworks(){
+    const f=document.getElementById("fireworks");
+    f.classList.add("active");
+    setTimeout(()=>f.classList.remove("active"),4000);
   }
+
+  /* Countdown to 2026 */
+  function updateCountdown(){
+    const target = new Date("January 1, 2026 00:00:00").getTime();
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    if(diff<=0){
+      document.getElementById("countdown").innerHTML="🎆 Happy New Year 2026! 🎆";
+      return;
+    }
+
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const m=Math.floor((diff%(1000*60*60))/(1000*60));
+    const s=Math.floor((diff%(1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML=
+      `⏳ ${d}d ${h}h ${m}m ${s}s until 2026`;
+  }
+
+  setInterval(updateCountdown,1000);
+  updateCountdown();
 </script>
 
 </body>
