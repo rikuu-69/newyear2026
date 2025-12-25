@@ -9,7 +9,6 @@
 
 <body>
 
-<!-- Starry sky -->
 <div class="stars"></div>
 
 <audio id="bgMusic" src="music/lost-stars.mp3"></audio>
@@ -21,7 +20,6 @@
   Thank you for being my favorite person, my comfort, and my home.
 </p>
 
-<!-- Countdown -->
 <div id="countdown"></div>
 
 <button class="music-btn" onclick="playMusic()">Play our song 🎵</button>
@@ -30,17 +28,85 @@
 
 <div class="photos">
 
-  <!-- Repeatable photo block -->
-  <div class="photo"><img src="images/photo1.jpg" onclick="toggle(1,event)"><p id="c1" class="caption">Our first favorite memory 💕</p></div>
-  <div class="photo"><img src="images/photo2.jpg" onclick="toggle(2,event)"><p id="c2" class="caption">A day I’ll never forget ✨</p></div>
-  <div class="photo"><img src="images/photo3.jpg" onclick="toggle(3,event)"><p id="c3" class="caption">Smiles that feel like home 😊</p></div>
-  <div class="photo"><img src="images/photo4.jpg" onclick="toggle(4,event)"><p id="c4" class="caption">Us being us ❤️</p></div>
-  <div class="photo"><img src="images/photo5.jpg" onclick="toggle(5,event)"><p id="c5" class="caption">One of my favorite moments 🥰</p></div>
-  <div class="photo"><img src="images/photo6.jpg" onclick="toggle(6,event)"><p id="c6" class="caption">Laughing with you never gets old 😄</p></div>
-  <div class="photo"><img src="images/photo7.jpg" onclick="toggle(7,event)"><p id="c7" class="caption">Exactly where I want to be 💗</p></div>
-  <div class="photo"><img src="images/photo8.jpg" onclick="toggle(8,event)"><p id="c8" class="caption">A memory close to my heart 💞</p></div>
-  <div class="photo"><img src="images/photo9.jpg" onclick="toggle(9,event)"><p id="c9" class="caption">More moments like this, please 🌸</p></div>
-  <div class="photo"><img src="images/photo10.jpg" onclick="toggle(10,event)"><p id="c10" class="caption">My favorite person, always 💖</p></div>
+  <div class="photo">
+    <img src="images/photo1.jpg" onclick="toggle(1, event)">
+    <div id="c1" class="caption">
+      <strong>My first favorite memory 💕</strong>
+      <small>We finally braved the room. Opened up and showed everyone we loved each other.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo2.jpg" onclick="toggle(2, event)">
+    <div id="c2" class="caption">
+      <strong>A day I’ll never forget ✨</strong>
+      <small>It's our first job. Where it all started — from having nothing to where we are now.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo3.jpg" onclick="toggle(3, event)">
+    <div id="c3" class="caption">
+      <strong>Smiles that I fell in love with 😊</strong>
+      <small>Ayiee. Finally came home after OJT in Thailand. I missed you so much.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo4.jpg" onclick="toggle(4, event)">
+    <div id="c4" class="caption">
+      <strong>Us being us ❤️</strong>
+      <small>Starbucks. SM BF. I love this photo.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo5.jpg" onclick="toggle(5, event)">
+    <div id="c5" class="caption">
+      <strong>One of my favorite moments 🥰</strong>
+      <small>I don’t remember when or where — but I know we were happy that day.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo6.jpg" onclick="toggle(6, event)">
+    <div id="c6" class="caption">
+      <strong>Your struggle era 😄</strong>
+      <small>I witnessed how you struggled, fought, and came back stronger.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo7.jpg" onclick="toggle(7, event)">
+    <div id="c7" class="caption">
+      <strong>Exactly where I want to be 💗</strong>
+      <small>You witnessed how I struggled, fought, and came back stronger.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo8.jpg" onclick="toggle(8, event)">
+    <div id="c8" class="caption">
+      <strong>A memory close to my heart 💞</strong>
+      <small>First studio — after 7 years. Mehehehe.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo9.jpg" onclick="toggle(9, event)">
+    <div id="c9" class="caption">
+      <strong>More moments like this, please 🌸</strong>
+      <small>One of my most expensive gastos in a day. Worth it. Bye 50k.</small>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="images/photo10.jpg" onclick="toggle(10, event)">
+    <div id="c10" class="caption">
+      <strong>My favorite person, always 💖</strong>
+      <small>And I choose you — every single time.</small>
+    </div>
+  </div>
 
 </div>
 
@@ -53,66 +119,65 @@
 <div id="fireworks"></div>
 
 <script>
-  /* Photo captions + hearts */
   function toggle(n, e) {
-    document.getElementById("c"+n).classList.toggle("show");
+    document.getElementById("c" + n).classList.toggle("show");
     spawnHeart(e.clientX, e.clientY);
   }
 
-  function spawnHeart(x,y) {
+  function spawnHeart(x, y) {
     const h = document.createElement("div");
     h.className = "heart";
-    h.style.left = x+"px";
-    h.style.top = y+"px";
+    h.style.left = x + "px";
+    h.style.top = y + "px";
     document.body.appendChild(h);
-    setTimeout(()=>h.remove(),1000);
+    setTimeout(() => h.remove(), 1000);
   }
 
-  /* Music fade-in */
   function playMusic() {
     const m = document.getElementById("bgMusic");
     m.volume = 0;
     m.play();
-    let v=0;
-    const fade=setInterval(()=>{
-      if(v<0.8){v+=0.02;m.volume=v;} else clearInterval(fade);
-    },200);
+    let v = 0;
+    const fade = setInterval(() => {
+      if (v < 0.8) {
+        v += 0.02;
+        m.volume = v;
+      } else clearInterval(fade);
+    }, 200);
   }
 
-  /* Final reveal */
-  function finalReveal(){
+  function finalReveal() {
     document.getElementById("secretMessage").classList.add("show");
-    document.getElementById("revealBtn").style.display="none";
+    document.getElementById("revealBtn").style.display = "none";
     launchFireworks();
   }
 
-  function launchFireworks(){
-    const f=document.getElementById("fireworks");
+  function launchFireworks() {
+    const f = document.getElementById("fireworks");
     f.classList.add("active");
-    setTimeout(()=>f.classList.remove("active"),4000);
+    setTimeout(() => f.classList.remove("active"), 4000);
   }
 
-  /* Countdown to 2026 */
-  function updateCountdown(){
+  function updateCountdown() {
     const target = new Date("January 1, 2026 00:00:00").getTime();
     const now = new Date().getTime();
     const diff = target - now;
 
-    if(diff<=0){
-      document.getElementById("countdown").innerHTML="🎆 Happy New Year 2026! 🎆";
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = "🎆 Happy New Year 2026! 🎆";
       return;
     }
 
-    const d=Math.floor(diff/(1000*60*60*24));
-    const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    const m=Math.floor((diff%(1000*60*60))/(1000*60));
-    const s=Math.floor((diff%(1000*60))/1000);
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
 
-    document.getElementById("countdown").innerHTML=
+    document.getElementById("countdown").innerHTML =
       `⏳ ${d}d ${h}h ${m}m ${s}s until 2026`;
   }
 
-  setInterval(updateCountdown,1000);
+  setInterval(updateCountdown, 1000);
   updateCountdown();
 </script>
 
