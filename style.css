@@ -10,6 +10,26 @@ body{margin:0;font-family:'Quicksand',sans-serif;background:#1a1a1f;color:#f2f2f
 .desktop-warning{display:none;height:100vh;background:#111;color:white;text-align:center;padding:40px;font-family:'Quicksand',sans-serif;}
 @media(min-width:768px){.mobile-only{display:none;}.desktop-warning{display:flex;justify-content:center;align-items:center;}}
 
+/* Intro card */
+.intro-card{
+  background: rgba(0,0,0,0.55);
+  border-radius: 20px;
+  padding: 24px 16px;
+  margin: 16px auto;
+  max-width: 360px;
+  animation:fadeUp 1s ease;
+  box-shadow:0 12px 30px rgba(0,0,0,0.5);
+}
+
+.tap-instruction{
+  font-family:'Pacifico',cursive;
+  font-size:1em;
+  color:#ffd6e5;
+  margin-top:12px;
+  animation: bounce 1.5s infinite alternate;
+}
+@keyframes bounce{0%{transform:translateY(0);}100%{transform:translateY(-6px);}}
+
 /* Content */
 .content{padding:16px;text-align:center;}
 h1{font-family:'Playfair Display',serif;color:#ffd6e5;font-size:2em;margin:20px 0;animation:fadeUp 1s ease;}
