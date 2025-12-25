@@ -34,13 +34,12 @@
     <!-- Intro card + instructions -->
     <div class="intro-card">
       <h1 class="opening-msg shimmer">Welcome 2026, Mahaloo! 🎆</h1>
-      <p class="opening-msg shimmer">As this new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home. Alabyuu! Mwaa</p>
-      <p class="tap-instruction shimmer">💫 Tap each photo to reveal the memories 💖</p>
+      <p class="opening-msg">As this new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home. Alabyuu! Mwaa</p>
+      <p class="tap-instruction">💫 Tap each photo to reveal the memories 💖</p>
     </div>
 
     <!-- Photos -->
     <div class="photos">
-      <!-- Repeat this block for each photo -->
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo1.jpg" alt="Memory 1">
         <div class="caption">
@@ -117,12 +116,10 @@
     <div class="ending">
       <button onclick="showEnding()">Tap this ❤️</button>
       <p id="finalMessage">No matter where 2026 takes us, I choose you ❤️ today and every year after.</p>
-    </div>
-
-    <!-- Progressive story ender -->
-    <div class="progressive-ender">
-      <h3>Our Journey & My 2026 Project 🌟</h3>
-      <p>Hey love! I just started learning coding, and AI has helped me a lot. This year I want to create a personal project that captures our story — our wins, our challenges, our laughs. Make sure to take lots of photos! Each memory will become a part of our progressive story in 2026. 💕</p>
+      <div class="progressive-ender">
+        <h3>Note from me 💌</h3>
+        <p>Hey love, I just started learning coding and AI helps me a lot. In 2026, I’m starting a personal project to capture our memories. Take lots of photos — I’ll make a story of our years, our wins, our challenges, and everything in between. Love you! 💖</p>
+      </div>
     </div>
 
   </div>
@@ -142,8 +139,19 @@ function reveal(photo){
 function showEnding(){
   document.getElementById('finalMessage').classList.add('show');
   const music = document.getElementById('bgMusic');
-  if(music.paused) music.play();
+  if(document.getElementById('bgMusic').paused) document.getElementById('bgMusic').play();
 }
+
+// Scroll fade-in
+const photos = document.querySelectorAll('.photo');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show-on-scroll');
+    }
+  });
+},{threshold:0.3});
+photos.forEach(photo=>observer.observe(photo));
 </script>
 
 </body>
