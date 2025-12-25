@@ -1,7 +1,7 @@
 /* Reset */
 body{margin:0;font-family:'Quicksand',sans-serif;background:#0b0c1c;color:#f2f2f2;overflow-x:hidden;}
 
-/* Background + Particles */
+/* Background + particles */
 .background{position:fixed;inset:0;background:linear-gradient(180deg,#0b0c1c,#1d0f2c);z-index:-3;}
 .particles{position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);background-size:120px 120px;animation:drift 60s linear infinite;z-index:-2;}
 @keyframes drift{0%{transform:translate(0,0);}50%{transform:translate(10px,-60px);}100%{transform:translate(0,-120px);}}
@@ -88,22 +88,6 @@ h1{font-family:'Playfair Display',serif;font-size:2em;margin:20px 0;animation:fa
 .caption p{font-family:'Pacifico',cursive;font-size:0.95em;color:#f0e6eb;}
 .photo.tap img{transform:scale(0.98);}
 
-/* Floating particles */
-.tap-particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #ffd6e5;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.8;
-  animation: floatParticle 0.8s forwards;
-}
-@keyframes floatParticle {
-  0% {transform: translate(0,0) scale(1); opacity:1;}
-  100% {transform: translate(var(--dx), var(--dy)) scale(0); opacity:0;}
-}
-
 /* Fade-in on scroll */
 .photo.fade-in{opacity:1;transform:translateY(0);transition:all 0.8s ease-out;}
 
@@ -121,3 +105,7 @@ button{background:#e07aa0;color:white;border:none;padding:14px 30px;border-radiu
 /* Animations */
 @keyframes fadeUp{0%{opacity:0;transform:translateY(12px);}100%{opacity:1;transform:translateY(0);}}
 @keyframes bounce{0%{transform:translateY(0);}100%{transform:translateY(-6px);}}
+
+/* Scroll fade-in for each photo */
+.photo{opacity:0;transform:translateY(20px);}
+.photo.show-on-scroll{opacity:1;transform:translateY(0);transition:all 0.8s ease-out;}
