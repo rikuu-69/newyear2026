@@ -1,4 +1,4 @@
-/* Mobile only */
+/* Desktop warning */
 .desktop-warning {
   display: none;
   height: 100vh;
@@ -25,19 +25,35 @@ body {
   overflow: hidden;
 }
 
-/* Soft night background */
+/* Soft night gradient */
 .background {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, #1a1b2f, #2a1f3d);
+  background: linear-gradient(180deg, #2b2d55, #3a244a);
+  z-index: -3;
+}
+
+/* Gentle particles */
+.particles {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 120px 120px;
+  animation: drift 40s linear infinite;
   z-index: -2;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120px); }
 }
 
 /* Intro */
 .intro {
   padding: 80px 20px;
   text-align: center;
-  color: #f5f5f5;
+  color: #f6f6f6;
 }
 
 h1 {
@@ -82,13 +98,18 @@ h1 {
   color: #f2f2f2;
 }
 
+/* Tap feedback */
+.photo-card.tap img {
+  transform: scale(0.98);
+}
+
 /* Images */
 .photo-card img {
   width: 100%;
   max-width: 340px;
   border-radius: 22px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-  transition: transform 0.4s ease;
+  transition: transform 0.25s ease;
 }
 
 .photo-card.active img {
@@ -116,8 +137,9 @@ h1 {
 }
 
 .caption p {
+  font-family: 'Pacifico', cursive;
   font-size: 0.95em;
-  color: #e6e6e6;
+  color: #f0e6eb;
 }
 
 /* Ending */
