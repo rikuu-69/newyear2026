@@ -34,8 +34,8 @@
     <!-- Intro card + instructions -->
     <div class="intro-card">
       <h1 class="opening-msg">Welcome 2026, Mahaloo! 🎆</h1>
-      <p class="opening-msg">As this new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home. Alabyuu! Mwaa</p>
-      <div class="tap-instruction">💫 Tap each photo to reveal the memories 💖</div>
+      <p class="opening-msg">As the new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home. Alabyuu! 💖</p>
+      <div class="tap-instruction">💫 Tap each photo to reveal the memories 💕</div>
     </div>
 
     <!-- Photos -->
@@ -47,6 +47,7 @@
           <p>We finally braved the room and showed everyone we loved each other.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo2.jpg" alt="Memory 2">
         <div class="caption">
@@ -54,6 +55,7 @@
           <p>Our first job — from nothing to where we are now.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo3.jpg" alt="Memory 3">
         <div class="caption">
@@ -61,6 +63,7 @@
           <p>You finally came home after OJT in Thailand. I missed you.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo4.jpg" alt="Memory 4">
         <div class="caption">
@@ -68,6 +71,7 @@
           <p>Starbucks. SM BF. I love this photo.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo5.jpg" alt="Memory 5">
         <div class="caption">
@@ -75,6 +79,7 @@
           <p>I don’t remember when, but we were happy that day.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo6.jpg" alt="Memory 6">
         <div class="caption">
@@ -82,6 +87,7 @@
           <p>I witnessed how you struggled, fought, and came back stronger.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo7.jpg" alt="Memory 7">
         <div class="caption">
@@ -89,6 +95,7 @@
           <p>You witnessed how I struggled, fought, and came back stronger.</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo8.jpg" alt="Memory 8">
         <div class="caption">
@@ -96,6 +103,7 @@
           <p>First studio! After 7 years. mehehehe</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo9.jpg" alt="Memory 9">
         <div class="caption">
@@ -103,6 +111,7 @@
           <p>One of my most extravagant days. Worth it! Bye 50k</p>
         </div>
       </div>
+
       <div class="photo" onclick="reveal(this)">
         <img src="images/photo10.jpg" alt="Memory 10">
         <div class="caption">
@@ -127,10 +136,33 @@ function reveal(photo){
   photo.classList.add('tap');
   setTimeout(()=> photo.classList.remove('tap'),150);
 
+  // Floating particles
+  for(let i=0;i<12;i++){
+    const particle = document.createElement('div');
+    particle.className='tap-particle';
+    const dx = (Math.random()-0.5)*80+'px';
+    const dy = (Math.random()-0.5)*80+'px';
+    particle.style.setProperty('--dx', dx);
+    particle.style.setProperty('--dy', dy);
+    photo.appendChild(particle);
+    setTimeout(()=> particle.remove(),800);
+  }
+
   // Play music on first tap
   const music = document.getElementById('bgMusic');
   if(music.paused) music.play();
 }
+
+// Fade in photos on scroll
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('fade-in');}
+  });
+},{threshold:0.2});
+
+document.querySelectorAll('.photo').forEach(photo=>{
+  observer.observe(photo);
+});
 
 function showEnding(){
   document.getElementById('finalMessage').classList.add('show');
