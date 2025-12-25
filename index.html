@@ -29,167 +29,122 @@
     <source src="music/lost-stars.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Slides container -->
-  <div class="slides-wrapper">
-    <div class="slides-container">
+  <div class="content">
 
-      <!-- Slide 1 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo1.jpg">
+    <h1>Welcome 2026, My Love 🎆</h1>
+    <p>As this new year begins, I just want you to know how grateful I am for you.<br>Thank you for being my favorite person, my comfort, and my home.</p>
+
+    <p>Here’s to more memories, more laughter, and more moments together in 2026.</p>
+
+    <div class="photos">
+      <!-- Slide template -->
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo1.jpg" alt="Memory 1">
         <div class="caption">
           <h3>My first favorite memory 💕</h3>
           <p>We finally braved the room and showed everyone we loved each other.</p>
         </div>
       </div>
 
-      <!-- Slide 2 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo2.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo2.jpg" alt="Memory 2">
         <div class="caption">
           <h3>A day I’ll never forget ✨</h3>
           <p>Our first job — from nothing to where we are now.</p>
         </div>
       </div>
 
-      <!-- Slide 3 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo3.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo3.jpg" alt="Memory 3">
         <div class="caption">
           <h3>Smiles that I fell in love with 😊</h3>
           <p>You finally came home after OJT in Thailand. I missed you.</p>
         </div>
       </div>
 
-      <!-- Slide 4 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo4.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo4.jpg" alt="Memory 4">
         <div class="caption">
           <h3>Us being us ❤️</h3>
           <p>Starbucks. SM BF. I love this photo.</p>
         </div>
       </div>
 
-      <!-- Slide 5 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo5.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo5.jpg" alt="Memory 5">
         <div class="caption">
           <h3>One of my favorite moments 🥰</h3>
           <p>I don’t remember when, but we were happy that day.</p>
         </div>
       </div>
 
-      <!-- Slide 6 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo6.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo6.jpg" alt="Memory 6">
         <div class="caption">
           <h3>Your struggle era 😄</h3>
           <p>I witnessed how you struggled, fought, and came back stronger.</p>
         </div>
       </div>
 
-      <!-- Slide 7 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo7.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo7.jpg" alt="Memory 7">
         <div class="caption">
           <h3>Exactly where I want to be 💗</h3>
           <p>You witnessed how I struggled, fought, and came back stronger.</p>
         </div>
       </div>
 
-      <!-- Slide 8 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo8.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo8.jpg" alt="Memory 8">
         <div class="caption">
           <h3>A memory close to my heart 💞</h3>
           <p>First studio! After 7 years. mehehehe</p>
         </div>
       </div>
 
-      <!-- Slide 9 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo9.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo9.jpg" alt="Memory 9">
         <div class="caption">
           <h3>More moments like this, please 🌸</h3>
           <p>One of my most extravagant days. Worth it! Bye 50k</p>
         </div>
       </div>
 
-      <!-- Slide 10 -->
-      <div class="slide" onclick="reveal(this)">
-        <img src="images/photo10.jpg">
+      <div class="photo" onclick="reveal(this)">
+        <img src="images/photo10.jpg" alt="Memory 10">
         <div class="caption">
           <h3>My favorite person, always 💖</h3>
           <p>No matter the year, it will always be you.</p>
         </div>
       </div>
 
-      <!-- Ending slide -->
-      <div class="slide ending">
-        <button onclick="showEnding()">Tap this ❤️</button>
-        <p id="finalMessage">
-          No matter where 2026 takes us, I choose you — today and every year after.
-        </p>
-      </div>
-
     </div>
+
+    <div class="ending">
+      <button onclick="showEnding()">Tap this ❤️</button>
+      <p id="finalMessage">No matter where 2026 takes us, I choose you — today and every year after.</p>
+    </div>
+
   </div>
 </div>
 
 <script>
-let currentSlide = 0;
-const slidesContainer = document.querySelector('.slides-container');
-const slides = document.querySelectorAll('.slide');
-let musicStarted = false;
+function reveal(photo){
+  photo.classList.toggle('revealed');
+  photo.classList.add('tap');
+  setTimeout(()=> photo.classList.remove('tap'),150);
 
-// Show initial slide
-updateSlide();
-
-function updateSlide() {
-  slidesContainer.style.transform = `translateX(-${currentSlide * 100}vw)`;
+  // Play music on first tap
+  const music = document.getElementById('bgMusic');
+  if(music.paused) music.play();
 }
 
-// Tap to reveal captions
-function reveal(slide) {
-  slide.classList.toggle('revealed');
-  slide.classList.add('tap');
-  setTimeout(()=> slide.classList.remove('tap'),150);
-
-  if(!musicStarted){
-    document.getElementById('bgMusic').play();
-    musicStarted = true;
-  }
-}
-
-// Ending message
 function showEnding(){
-  document.getElementById("finalMessage").classList.add("show");
-  if(!musicStarted){
-    document.getElementById('bgMusic').play();
-    musicStarted = true;
-  }
-}
-
-// Swipe detection for mobile
-let startX = 0, endX = 0;
-slidesContainer.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-slidesContainer.addEventListener('touchend', e => {
-  endX = e.changedTouches[0].clientX;
-  if(startX - endX > 50) nextSlide();
-  if(endX - startX > 50) prevSlide();
-});
-
-function nextSlide() {
-  if(currentSlide < slides.length-1){
-    currentSlide++;
-    updateSlide();
-  }
-}
-function prevSlide() {
-  if(currentSlide > 0){
-    currentSlide--;
-    updateSlide();
-  }
+  document.getElementById('finalMessage').classList.add('show');
+  const music = document.getElementById('bgMusic');
+  if(music.paused) music.play();
 }
 </script>
+
 </body>
 </html>
