@@ -10,7 +10,7 @@ body {
   color: #f5f5f5;
 }
 
-/* Desktop warning (always visible on desktop) */
+/* Desktop warning */
 .desktop-warning {
   position: fixed;
   top: 10px;
@@ -25,7 +25,7 @@ body {
   z-index: 9999;
   max-width: 350px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-  display: none; /* hide on mobile */
+  display: none; /* hide on small screens */
 }
 
 @media (min-width: 768px){
